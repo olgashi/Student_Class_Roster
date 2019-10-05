@@ -2,7 +2,7 @@
 // Created by Olga Shiryaeva on 10/5/19.
 //
 
-#ifndef CLASS_ROSTER_DEGREE_H
-#define CLASS_ROSTER_DEGREE_H
+#include <string>
+enum Degree {SECURITY, NETWORKING, SOFTWARE}; //Degree program types
 
-#endif //CLASS_ROSTER_DEGREE_H
+static const std::string degreeTypeStrings[] = {"SECURITY", "NETWORKING", "SOFTWARE"}; //use for printing degree types
