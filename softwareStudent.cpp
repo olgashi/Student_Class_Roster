@@ -1,10 +1,13 @@
 //
 // Created by Olga Shiryaeva on 10/5/19.
 //
+#include <iostream>
+#include "softwareStudent.h"
+using std::cout;
 
 SoftwareStudent::SoftwareStudent():Student()
 {
-    degreeType = SECURITY;
+    degreeType = SOFTWARE;
 }
 
 SoftwareStudent::SoftwareStudent(string studentID, string firstName, string lastName, string studentEmail, int studentAge, int daysToCompleteCourse[], DegreeType degreeType):Student(studentID, firstName, lastName, studentEmail, studentAge, daysToCompleteCourse)
@@ -12,7 +15,7 @@ SoftwareStudent::SoftwareStudent(string studentID, string firstName, string last
     degreeType = SOFTWARE;
 }
 
-DegreeType SoftwareStudent::getDegreeType()
+DegreeType SoftwareStudent::getDegreeProgram()
 {
     return SOFTWARE;
 }

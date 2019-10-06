@@ -1,20 +1,23 @@
 //
 // Created by Olga Shiryaeva on 10/5/19.
 //
+#include <iostream>
+#include "networkStudent.h"
+using std::cout;
 
 NetworkStudent::NetworkStudent():Student()
 {
-    degreeType = SECURITY;
+    degreeType = NETWORKING;
 }
 
 NetworkStudent::NetworkStudent(string studentID, string firstName, string lastName, string studentEmail, int studentAge, int daysToCompleteCourse[], DegreeType degreeType):Student(studentID, firstName, lastName, studentEmail, studentAge, daysToCompleteCourse)
 {
-    degreeType = NETWORK;
+    degreeType = NETWORKING;
 }
 
-DegreeType NetworkStudent::getDegreeType()
+DegreeType NetworkStudent::getDegreeProgram()
 {
-    return NETWORK;
+    return NETWORKING;
 }
 
 void  NetworkStudent::print()

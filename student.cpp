@@ -51,7 +51,7 @@ string Student::getStudentEmail()
     return studentEmail;
 }
 
-string Student::getStudentAge()
+int Student::getStudentAge()
 {
     return studentAge;
 }
@@ -68,23 +68,23 @@ void Student::setStudentID(string ID)
     this->studentID = ID;
 }
 
-void Book::setStudentFirstName(string firstName)
+void Student::setStudentFirstName(string firstName)
 {
     this->firstName = firstName;
 }
 
-void Book::setStudentLastName(string lastName)
+void Student::setStudentLastName(string lastName)
 {
     this->lastName = lastName;
 }
 
-void Book::set(string email)
+void Student::setStudentEmail(string email)
 {
     this->studentEmail = email;
 }
 
 
-void Book::set(int age)
+void Student::setStudentAge(int age)
 {
     this->studentAge = age;
 }
@@ -101,7 +101,7 @@ void Student::print()
     cout << left << setw(20) << lastName;
     cout << left << setw(10) << studentEmail;
     cout << left << setw(10) << studentAge;
-    cout << left << setw(10) << prices[0];
+    cout << left << setw(10) << daysToCompleteCourse[0];
 }
 
 Student::~Student()

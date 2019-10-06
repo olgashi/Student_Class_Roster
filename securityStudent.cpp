@@ -1,6 +1,9 @@
 //
 // Created by Olga Shiryaeva on 10/5/19.
 //
+#include <iostream>
+#include "securityStudent.h"
+using std::cout;
 
 SecurityStudent::SecurityStudent():Student()
 {
@@ -12,7 +15,7 @@ SecurityStudent::SecurityStudent(string studentID, string firstName, string last
     degreeType = SECURITY;
 }
 
-DegreeType SecurityStudent::getDegreeType()
+DegreeType SecurityStudent::getDegreeProgram()
 {
     return SECURITY;
 }

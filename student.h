@@ -1,6 +1,7 @@
 //
 // Created by Olga Shiryaeva on 10/5/19.
 //
+#pragma once
 #include <string>
 #include "degree.h"
 using std::string;
@@ -8,7 +9,7 @@ using std::string;
 class Student //class represents a Student
 {
 public:
-    const static int daysToCompleteSize = 5;
+    const static int daysToCompleteSize = 3;
 
 protected:
     string studentID;
@@ -17,7 +18,7 @@ protected:
     string studentEmail;
     int studentAge;
     int daysToCompleteCourse[daysToCompleteSize];
-    Degree degreeType;
+    DegreeType degreeType;
 
 public:
     Student();//empty constructor
@@ -28,9 +29,9 @@ public:
     string getStudentFirstName();
     string getStudentLastName();
     string getStudentEmail();
-    string getStudentAge();
+    int getStudentAge();
     int* getDaysToCompleteCourse();
-    virtual Degree getDegreeProgram() = 0;
+    virtual DegreeType getDegreeProgram() = 0;
 
 //    setters
     void setStudentID(string studentID);
@@ -42,5 +43,5 @@ public:
     virtual void print() = 0;
 
 //    destructor
-    ~Student();
+    virtual ~Student();
 };

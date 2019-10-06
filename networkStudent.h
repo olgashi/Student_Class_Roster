@@ -10,17 +10,9 @@ class NetworkStudent : public Student
 public:
 //    constructor
     NetworkStudent();
-    NetworkStudent(
-            string studentID;
-            string firstName;
-            string lastName;
-            string studentEmail;
-            int studentAge;
-            int daysToCompleteCourse[];
-            Degree degreeType;
-    )
+    NetworkStudent(string studentID, string firstName, string lastName, string studentEmail, int studentAge, int daysToCompleteCourse[], DegreeType degreeType);
 
-    Degree getDegreeProgram();
+    DegreeType getDegreeProgram();
     void print();
 //destructor
     ~NetworkStudent();

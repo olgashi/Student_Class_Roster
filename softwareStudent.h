@@ -10,17 +10,9 @@ class SoftwareStudent : public Student
 public:
 //    constructor
     SoftwareStudent();
-    SoftwareStudent(
-            string studentID;
-    string firstName;
-    string lastName;
-    string studentEmail;
-    int studentAge;
-    int daysToCompleteCourse[];
-    Degree degreeType;
-    )
+    SoftwareStudent(string studentID, string firstName, string lastName, string studentEmail, int studentAge, int daysToCompleteCourse[], DegreeType degreeType);
 
-    Degree getDegreeProgram();
+    DegreeType getDegreeProgram();
     void print();
 //destructor
     ~SoftwareStudent();

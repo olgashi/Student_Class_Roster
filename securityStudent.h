@@ -10,17 +10,9 @@ class SecurityStudent : public Student
 public:
 //    constructor
     SecurityStudent();
-    SecurityStudent(
-            string studentID;
-            string firstName;
-            string lastName;
-            string studentEmail;
-            int studentAge;
-            int daysToCompleteCourse[];
-            Degree degreeType;
-            )
+    SecurityStudent(string studentID, string firstName, string lastName, string studentEmail, int studentAge, int daysToCompleteCourse[], DegreeType degreeType);
 
-            Degree getDegreeProgram();
+    DegreeType getDegreeProgram();
     void print();
 //destructor
     ~SecurityStudent();
