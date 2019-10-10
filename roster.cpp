@@ -6,8 +6,7 @@
 #include "networkStudent.h"
 #include "securityStudent.h"
 #include "softwareStudent.h"
-using std::cout;
-using std::cerr;
+using namespace std;
 //ALWAYS DEFINE THE EMPTY CONSTRUCTOR - IT GETS CALLED BY DEFAULT IF NO OTHER SPECIFIED!
 Roster::Roster()//The empty constructor sets to default values
 {
@@ -30,13 +29,16 @@ Student * Roster::getStudentAt(int index)
 
 //modified 12/17/2018
 //Calls a separate add() method at the end
-void Roster::parseThenAdd(string row)
-{
+void Roster::parseThenAdd(string row){
+//need to parse a string first
+//    -------------------------before if
     if (lastIndex < capacity) {
         lastIndex++;
         DegreeType degreeType;
         //Test if fiction or nonfiction - cannot create anything of type 'Book'
         //Note this is a big fat cheat - first letter of ID is always F or N     ;-) (wink)
+        cout << "inside parseThenAdd";
+        cout << row[5];
         if (row[0] == 'N') degreeType = NETWORKING;
         else if ((row[0] == 'S') && (row[1] == 'E'))degreeType = SECURITY;
         else if ((row[0] == 'S') && (row[1] == 'O'))degreeType = SOFTWARE;
@@ -90,6 +92,7 @@ void Roster::parseThenAdd(string row)
     }
     else //barf and leave - we have exceeded capacity
     {
+   
         cerr << "ERROR! LIST HAS EXCEEDED MAXIMUM CAPACITY!\n EXITING NOW!";
         exit(-1);
     }
@@ -194,7 +197,7 @@ int main() //MAIN - HERE WE GO
     int numStudents = 5;
     //Input is 6 long comma-delimited strings
     const string studentData[] =
-            {"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
+            {"A1,John,Smith,John1989@gmail.com,20,30,35,40,SECURITY",
              "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
              "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
              "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
@@ -204,7 +207,9 @@ int main() //MAIN - HERE WE GO
     cout << "Parsing data and adding students:\t";
     for (int i = 0; i < numStudents; i++)
     {
+        cout << studentData[i];
         rep->parseThenAdd(studentData[i]);//PARSE EACH LINE, TURN THEM INTO BOOKS, AND ADD THEM TO REPOSITORY
+        cout << studentData[i];
     }
     cout << "DONE.\n";
     cout << "Displaying all students:\n";
@@ -224,14 +229,14 @@ int main() //MAIN - HERE WE GO
 //    else cout << "Student not found!\n";
 
     cout << "Printing average days for all students:\n";
-//    for (int i = 0; i < numStudents; i++) {
-//        rep->printDaysInCourse(rep->getStudentAt(i)->getStudentID());//PRINTS THE AVERAGE PRICE OF SPECIFIED BOOK
-//    }
-    // rep->printInvalidEmails();//SPOTS PRICES THAT ARE IN ERROR AND DISPLAYS THEM
+    for (int i = 0; i < numStudents; i++) {
+        rep->printDaysInCourse(rep->getStudentAt(i)->getStudentID());//PRINTS THE AVERAGE PRICE OF SPECIFIED BOOK
+    }
+     rep->printInvalidEmails();//SPOTS PRICES THAT ARE IN ERROR AND DISPLAYS THEM
 
-    //Now we will only print books of the specified types
-    //Note index is casted from an integer to a BookType enum
-//    for (int i = 0; i < 2; i++) rep->printByDegreeProgram((DegreeType) i);
+//    Now we will only print books of the specified types
+//    Note index is casted from an integer to a BookType enum
+    for (int i = 0; i < 2; i++) rep->printByDegreeProgram((DegreeType) i);
 
     system("pause");//NEEDED ONLY TO HOLD CONSOLE WINDOW UP IF USING VSTUDIO
     return 0;//ALL DONE; BYE-BYE!

@@ -1,0 +1,3 @@
+/Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/Class_Roster.dir

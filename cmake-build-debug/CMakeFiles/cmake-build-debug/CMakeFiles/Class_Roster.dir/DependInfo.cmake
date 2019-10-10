@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp" "/Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/ClionProject.dir/Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.o"
+  "/Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp" "/Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/Class_Roster.dir/Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

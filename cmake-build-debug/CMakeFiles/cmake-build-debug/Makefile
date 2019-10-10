@@ -48,10 +48,10 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles
+CMAKE_SOURCE_DIR = /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named ClionProject
+# Target rules for targets named Class_Roster
 
 # Build rule for target.
-ClionProject: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 ClionProject
-.PHONY : ClionProject
+Class_Roster: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Class_Roster
+.PHONY : Class_Roster
 
 # fast build rule for target.
-ClionProject/fast:
-	$(MAKE) -f CMakeFiles/ClionProject.dir/build.make CMakeFiles/ClionProject.dir/build
-.PHONY : ClionProject/fast
+Class_Roster/fast:
+	$(MAKE) -f CMakeFiles/Class_Roster.dir/build.make CMakeFiles/Class_Roster.dir/build
+.PHONY : Class_Roster/fast
 
 Users/olgashiryaeva/CLionProjects/Class_Roster/roster.o: Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.o
 
@@ -129,7 +129,7 @@ Users/olgashiryaeva/CLionProjects/Class_Roster/roster.o: Users/olgashiryaeva/CLi
 
 # target to build an object file
 Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.o:
-	$(MAKE) -f CMakeFiles/ClionProject.dir/build.make CMakeFiles/ClionProject.dir/Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.o
+	$(MAKE) -f CMakeFiles/Class_Roster.dir/build.make CMakeFiles/Class_Roster.dir/Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.o
 .PHONY : Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.o
 
 Users/olgashiryaeva/CLionProjects/Class_Roster/roster.i: Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.i
@@ -138,7 +138,7 @@ Users/olgashiryaeva/CLionProjects/Class_Roster/roster.i: Users/olgashiryaeva/CLi
 
 # target to preprocess a source file
 Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.i:
-	$(MAKE) -f CMakeFiles/ClionProject.dir/build.make CMakeFiles/ClionProject.dir/Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.i
+	$(MAKE) -f CMakeFiles/Class_Roster.dir/build.make CMakeFiles/Class_Roster.dir/Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.i
 .PHONY : Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.i
 
 Users/olgashiryaeva/CLionProjects/Class_Roster/roster.s: Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.s
@@ -147,7 +147,7 @@ Users/olgashiryaeva/CLionProjects/Class_Roster/roster.s: Users/olgashiryaeva/CLi
 
 # target to generate assembly for a file
 Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.s:
-	$(MAKE) -f CMakeFiles/ClionProject.dir/build.make CMakeFiles/ClionProject.dir/Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.s
+	$(MAKE) -f CMakeFiles/Class_Roster.dir/build.make CMakeFiles/Class_Roster.dir/Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.s
 .PHONY : Users/olgashiryaeva/CLionProjects/Class_Roster/roster.cpp.s
 
 # Help Target
@@ -158,7 +158,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... ClionProject"
+	@echo "... Class_Roster"
 	@echo "... Users/olgashiryaeva/CLionProjects/Class_Roster/roster.o"
 	@echo "... Users/olgashiryaeva/CLionProjects/Class_Roster/roster.i"
 	@echo "... Users/olgashiryaeva/CLionProjects/Class_Roster/roster.s"

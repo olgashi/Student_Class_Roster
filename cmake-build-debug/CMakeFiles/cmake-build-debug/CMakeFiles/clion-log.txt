@@ -1,1 +1,4 @@
-CMakeLists.txt not found in /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles Select CMakeLists.txt file...
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug

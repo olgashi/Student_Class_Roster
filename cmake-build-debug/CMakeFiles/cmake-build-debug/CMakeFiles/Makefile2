@@ -59,45 +59,45 @@ RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles
+CMAKE_SOURCE_DIR = /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/ClionProject.dir
+# Target rules for target CMakeFiles/Class_Roster.dir
 
 # All Build rule for target.
-CMakeFiles/ClionProject.dir/all:
-	$(MAKE) -f CMakeFiles/ClionProject.dir/build.make CMakeFiles/ClionProject.dir/depend
-	$(MAKE) -f CMakeFiles/ClionProject.dir/build.make CMakeFiles/ClionProject.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target ClionProject"
-.PHONY : CMakeFiles/ClionProject.dir/all
+CMakeFiles/Class_Roster.dir/all:
+	$(MAKE) -f CMakeFiles/Class_Roster.dir/build.make CMakeFiles/Class_Roster.dir/depend
+	$(MAKE) -f CMakeFiles/Class_Roster.dir/build.make CMakeFiles/Class_Roster.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Class_Roster"
+.PHONY : CMakeFiles/Class_Roster.dir/all
 
 # Include target in all.
-all: CMakeFiles/ClionProject.dir/all
+all: CMakeFiles/Class_Roster.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/ClionProject.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ClionProject.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/ClionProject.dir/rule
+CMakeFiles/Class_Roster.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Class_Roster.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/olgashiryaeva/CLionProjects/Class_Roster/cmake-build-debug/CMakeFiles/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/Class_Roster.dir/rule
 
 # Convenience name for target.
-ClionProject: CMakeFiles/ClionProject.dir/rule
+Class_Roster: CMakeFiles/Class_Roster.dir/rule
 
-.PHONY : ClionProject
-
-# clean rule for target.
-CMakeFiles/ClionProject.dir/clean:
-	$(MAKE) -f CMakeFiles/ClionProject.dir/build.make CMakeFiles/ClionProject.dir/clean
-.PHONY : CMakeFiles/ClionProject.dir/clean
+.PHONY : Class_Roster
 
 # clean rule for target.
-clean: CMakeFiles/ClionProject.dir/clean
+CMakeFiles/Class_Roster.dir/clean:
+	$(MAKE) -f CMakeFiles/Class_Roster.dir/build.make CMakeFiles/Class_Roster.dir/clean
+.PHONY : CMakeFiles/Class_Roster.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/Class_Roster.dir/clean
 
 .PHONY : clean
 

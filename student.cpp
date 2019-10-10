@@ -19,13 +19,13 @@ Student::Student() //Empty constructor to set to default values
     for (int i = 0; i < daysToCompleteSize; ++i) this->daysToCompleteCourse[i] = 0;
 }
 
-Student::Student()
+Student::Student(string Id, string fName, string lName, string email, int age, int daysToCompleteCourse[])
 {
-    this->studentID = studentID;
-    this->firstName = firstName;
-    this->lastName = lastName;
-    this->studentEmail = studentEmail;
-    this->studentAge = studentAge;
+    this->studentID = Id;
+    this->firstName = fName;
+    this->lastName = lName;
+    this->studentEmail = email;
+    this->studentAge = age;
 
     for (int i = 0; i < daysToCompleteSize; ++i) this->daysToCompleteCourse[i] = daysToCompleteCourse[i];
 }
