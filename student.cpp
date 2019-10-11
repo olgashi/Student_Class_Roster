@@ -102,6 +102,8 @@ void Student::print()
     cout << left << setw(10) << studentEmail;
     cout << left << setw(10) << studentAge;
     cout << left << setw(10) << daysToCompleteCourse[0];
+    cout << left << setw(10) << daysToCompleteCourse[1];
+    cout << left << setw(10) << daysToCompleteCourse[2];
 }
 
 Student::~Student()
