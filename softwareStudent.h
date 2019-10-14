@@ -8,12 +8,12 @@
 class SoftwareStudent : public Student
 {
 public:
-//    constructor
+// constructor
     SoftwareStudent();
     SoftwareStudent(string studentID, string firstName, string lastName, string studentEmail, int studentAge, int daysToCompleteCourse[], DegreeType degreeType);
 
     DegreeType getDegreeProgram();
     void print();
-//destructor
+// destructor
     ~SoftwareStudent();
 };

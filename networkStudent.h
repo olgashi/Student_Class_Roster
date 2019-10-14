@@ -8,12 +8,12 @@
 class NetworkStudent : public Student
 {
 public:
-//    constructor
+// constructor
     NetworkStudent();
     NetworkStudent(string studentID, string firstName, string lastName, string studentEmail, int studentAge, int daysToCompleteCourse[], DegreeType degreeType);
 
     DegreeType getDegreeProgram();
     void print();
-//destructor
+// destructor
     ~NetworkStudent();
 };

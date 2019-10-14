@@ -10,43 +10,43 @@
 #include <sstream>
 #include <iostream>
 #include <vector>
+#include <regex>
+#include <iomanip>
 
 using namespace std;
 Roster::Roster()//The empty constructor sets to default values
 {
     this->capacity = 0;
-    this->lastIndex = -1;//Means EMPTY; 0 is a valid index in an array
+    this->lastIndex = -1;
     this->classRosterArray = nullptr;
 }
 
-Roster::Roster(int capacity)//Sets a max capacity for the repository
+Roster::Roster(int capacity)// capacity to set a capacity for the repository
 {
     this->capacity = capacity;
-    this->lastIndex = -1;//AGAIN; means empty
+    this->lastIndex = -1;
     this->classRosterArray = new Student*[capacity];
 }
 
-Student * Roster::getStudentAt(int index)
+Student * Roster::getStudentAt(int index) 
 {
     return classRosterArray[index];
 }
 
-//modified 12/17/2018
-//Calls a separate add() method at the end
 void Roster::parseThenAdd(string row){
     if (lastIndex < capacity) {
         lastIndex++;
         DegreeType degreeType;
         vector<string> results;
-        
+        // to parse each student record
         for (auto words : row) {
             stringstream  ss(row);
-            string str;
-            while (getline(ss, str, ',')) {
-                results.push_back(str);
+            string studentRecord;
+            while (getline(ss, studentRecord, ',')) {
+                results.push_back(studentRecord);
             }
         }
-        
+    
         string sID = results[0];
         string sFirstName = results[1];
         string sLastName = results[2];
@@ -55,27 +55,26 @@ void Roster::parseThenAdd(string row){
         int days1 = stoi(results[5]);
         int days2 = stoi(results[6]);
         int days3 = stoi(results[7]);
-
+		// assign student degree type
         if (results[8][0] == 'N') degreeType = NETWORKING;
         else if ((results[8][0] == 'S') && (results[8][1] == 'E'))degreeType = SECURITY;
         else if ((results[8][0] == 'S') && (results[8][1] == 'O'))degreeType = SOFTWARE;
-        else //barf and leave
+        else
         {
-            cerr << "INVALID STUDENT TYPE!  EXITING NOW!\n";
+            cerr << "Invalid student type. Exiting the program...\n";
             exit(-1);
         }
-
+		// add student to student roster
          add(sID, sFirstName, sLastName, sEmail, sAge, days1, days2, days3, degreeType);
     }
-    else //barf and leave - we have exceeded capacity
+    else 
     {
-   
-        cerr << "ERROR! LIST HAS EXCEEDED MAXIMUM CAPACITY!\n EXITING NOW!";
+        cerr << "List has exceeded capacity. Exiting the program...";
         exit(-1);
     }
 }
 
-//This method creates the student with correct degree type, adds to roster - all parsed values passed in
+// Creates the student with correct degree type, adds to roster
 void Roster::add(string sID, string sFirstName, string sLastName, string sEmail, int sAge, int days1, int days2, int days3, DegreeType sd)
 {
     int studentCourses[Student::daysToCompleteSize];
@@ -86,69 +85,60 @@ void Roster::add(string sID, string sFirstName, string sLastName, string sEmail,
     else if (sd == SECURITY) classRosterArray[lastIndex] = new SecurityStudent(sID,sFirstName, sLastName, sEmail, sAge, studentCourses, sd);
     else classRosterArray[lastIndex] = new NetworkStudent(sID,sFirstName, sLastName, sEmail, sAge, studentCourses, sd);
 }
-
-void Roster::print_All()//Roll thru the array of students and call print method for each one
+// Print all students
+void Roster::printAll()
 {
-    //Note this works properly for students of different types; that's run-time polymorphism!
     for (int i = 0; i <= this->lastIndex; i++) (this->classRosterArray)[i]->print();
 }
-
+// Remove student with given ID
 bool Roster::remove(string ID)
 {
     bool found = false;
     for (int i = 0; i <= lastIndex; i++)
     {
-        if (this->classRosterArray[i]->getStudentID() == ID) //Book found
+        if (this->classRosterArray[i]->getStudentID() == ID)
         {
-            found = true;
-            //delete it
+			found = true;
             delete this->classRosterArray[i];
-            //Move last student to this position - no gaps in array
-            //This might be self-assignment, but poses no danger
+            
             this->classRosterArray[i] = this->classRosterArray[lastIndex];
-            lastIndex--;//Roster is one element smaller
+            lastIndex--;
         }
     }
     return found;
 }
-
-void Roster::printDaysInCourse(string studentID)
+// Print average days in course for a student
+void Roster::printAverageDaysInCourse(string studentID)
 {
     bool found = false;
     for (int i = 0; i <= lastIndex; i++)
     {
-        if (this->classRosterArray[i]->getStudentID() == studentID) //Book found
+        if (this->classRosterArray[i]->getStudentID() == studentID)
         {
             found = true;
             int* p = classRosterArray[i]->getDaysToCompleteCourse();
-            cout << "Average days for student with ID#" << studentID << " is " << (p[0] + p[1] + p[2]) / 3 << ".\n";
+            cout << "Average days in course for student with ID# " << studentID << " is " << (p[0] + p[1] + p[2]) / 3 << ".\n";
         }
     }
     if (!found) cout << "Student not found!\n";
 }
-
+// Print invalid emails
 void Roster::printInvalidEmails()
 {
-    cout << "Displaying invalid price entries:\n";
+    const std::regex pattern("(\\w+)(\\.|_)?(\\w*)@(\\w+)(\\.(\\w+))+");
+
     bool any = false;
     for (int i = 0; i <= lastIndex; i++)
     {
-        any = false;
         string p = classRosterArray[i]->getStudentEmail();
-        for (int j = 0; j < Student::daysToCompleteSize; j++)
-        {
-            if (p[j]<0)
-            {
-                any = true;
-                cout << "Student ID " << classRosterArray[i]->getStudentID() << ": ";
-                cout << p[j] << " ";
-            }
+        if (!regex_match(p, pattern)) {
+            any = true;
+            cout << p <<"\n";
         }
-        if (any) cout << "\n";
     }
-    if (!any) cout << "NONE";
+    if (!any) cout << "There are no invalid emails.";
 }
-
+// Print students by degree program
 void Roster::printByDegreeProgram(int degreeProgram)
 {
     cout << "Printing students of type " << degreeTypeStrings[degreeProgram] << "\n";
@@ -157,62 +147,69 @@ void Roster::printByDegreeProgram(int degreeProgram)
     }
 }
 
-Roster::~Roster()//destroys all the books
+
+Roster::~Roster()// Destroys all students
 {
     for (int i = 0; i <= lastIndex; i++)
     {
-        delete this->classRosterArray[i];//Deletes each book first
+        delete this->classRosterArray[i];
     }
-    delete classRosterArray;//Deletes the dynamically allocated array of pointers to the books
+    delete classRosterArray;
+	cout << "\nDestructor is executed\n";
 }
 
-int main() //MAIN - HERE WE GO
+int main() //  Main
 {
-    //modified 12/17/2018
     int numStudents = 5;
-    //Input is 6 long comma-delimited strings
+    
+	// Input is 5 long comma-delimited strings containing student data
     const string studentData[] =
             {"A1,John,Smith,John1989@gmail.com,20,30,35,40,SECURITY",
              "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
              "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
              "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
-             "A5,Olga,Shiryaeva,oshiryaeva@wgu.edu,35,30,22,30,SOFTWARE"};
+             "A5,Olga,Shiryaeva,oshirya@wgu.edu,35,30,22,30,SOFTWARE"};
 
-    Roster * rep = new Roster(numStudents);//MAKE THE REPOSITORY
-    cout << "Parsing data and adding students:\t";
+    Roster * classRoster = new Roster(numStudents); // Create student roster
+    cout << "Parsing student data and adding students to roster:\t";
     for (int i = 0; i < numStudents; i++)
     {
-//        cout << studentData[i];
-        rep->parseThenAdd(studentData[i]);//PARSE EACH LINE, TURN THEM INTO BOOKS, AND ADD THEM TO REPOSITORY
-//        cout << studentData[i];
+        classRoster->parseThenAdd(studentData[i]);// Parses each record, creates a student, adds to roster
     }
-    cout << "DONE.\n";
+    cout << "Finished parsing and adding.\n";
+
     cout << "Displaying all students:\n";
-    rep->print_All();//DISPLAY ALL BOOKS IN THE REPOSITORY
+	cout << left << setw(10) << "\nStudent ID    First Name                Last Name                 Email                  Age       Days in Course    Degree   \n";
+	cout << left << setw(5) << "---------------------------------------------------------------------------------------------------------------------------------\n";
+	
+    classRoster->printAll();// Print all students in roster
 
-    cout << "Removing F4:\n";//REMOVE BOOK WITH THE SUPPLIED ID
-    if (rep->remove("F4")) {
-        rep->print_All();
-        numStudents--;
-    }
-    else cout << "Student not found!\n";
+	cout << "\nDisplaying invalid emails:\n";
+	classRoster->printInvalidEmails();// Print emails that have invalid format
 
-    cout << "Removing F4:\n";//REMOVE SAME ITEM TWICE TO CHECK ERROR CONDITION
-    if (rep->remove("F4")) {
-        rep->print_All();
-    }
-    else cout << "Student not found!\n";
+	cout << "\nPrinting average days in course for all students:\n";
+	for (int i = 0; i < numStudents; i++) {
+		classRoster->printAverageDaysInCourse(classRoster->getStudentAt(i)->getStudentID());// Print average days in course for each student
+	}
 
-    cout << "Printing average days for all students:\n";
-    for (int i = 0; i < numStudents; i++) {
-        rep->printDaysInCourse(rep->getStudentAt(i)->getStudentID());//PRINTS THE AVERAGE PRICE OF SPECIFIED BOOK
-    }
-     rep->printInvalidEmails();//SPOTS PRICES THAT ARE IN ERROR AND DISPLAYS THEM
+	// Print students of provided Degree type
+	cout << left << setw(10) << "\nStudent ID    First Name                Last Name                 Email                  Age       Days in Course    Degree   \n";
+	cout << left << setw(5) << "---------------------------------------------------------------------------------------------------------------------------------\n";
+	classRoster->printByDegreeProgram(SOFTWARE);
 
-//    Now we will only print books of the specified types
-//    Note index is casted from an integer to a BookType enum
-    for (int i = 0; i < 2; i++) rep->printByDegreeProgram((DegreeType) i);
+    cout << "\nRemoving student with ID# A3. Then printing remaining students in the roster. Then trying to remove the same student again to check error conditions.\n";
+	// Remove student with provided ID twice: first - to remove, second - to check error condition
+	for (int i = 0; i < 2; i++) {
+		if (classRoster->remove("A3")) {
+			cout << left << setw(10) << "Student ID    First Name                Last Name                 Email                  Age       Days in Course    Degree   \n";
+			cout << left << setw(5) << "---------------------------------------------------------------------------------------------------------------------------------\n";
+			classRoster->printAll();
+			numStudents--;
+		}
+		else cout << "\nStudent not found!\n";
+	}
 
-    system("pause");//NEEDED ONLY TO HOLD CONSOLE WINDOW UP IF USING VSTUDIO
-    return 0;//ALL DONE; BYE-BYE!
+	classRoster->~Roster();
+
+    return 0;
 }

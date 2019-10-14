@@ -5,4 +5,4 @@
 #include <string>
 enum DegreeType {SECURITY, NETWORKING, SOFTWARE}; //Degree program types
 
-static const std::string degreeTypeStrings[] = {"SECURITY", "NETWORKING", "SOFTWARE"}; //use for printing degree types
+static const std::string degreeTypeStrings[] = {"SECURITY", "NETWORKING", "SOFTWARE"}; //to print degree types

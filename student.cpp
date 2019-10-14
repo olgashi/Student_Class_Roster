@@ -96,14 +96,14 @@ void Student::setDaysToCompleteCourse(int daysToCompleteCourse[]){
 
 void Student::print()
 {
-    cout << left << setw(5) << studentID;
-    cout << left << setw(45) << firstName;
-    cout << left << setw(20) << lastName;
-    cout << left << setw(10) << studentEmail;
+    cout << left << setw(15) << studentID;
+    cout << left << setw(25) << firstName;
+    cout << left << setw(25) << lastName;
+    cout << left << setw(25) << studentEmail;
     cout << left << setw(10) << studentAge;
-    cout << left << setw(10) << daysToCompleteCourse[0];
-    cout << left << setw(10) << daysToCompleteCourse[1];
-    cout << left << setw(10) << daysToCompleteCourse[2];
+    cout << left << setw(5) << daysToCompleteCourse[0];
+    cout << left << setw(5) << daysToCompleteCourse[1];
+    cout << left << setw(5) << daysToCompleteCourse[2];
 }
 
 Student::~Student()
