@@ -92,18 +92,19 @@ void Student::setStudentAge(int age)
 void Student::setDaysToCompleteCourse(int daysToCompleteCourse[]){
     for (int i = 0; i < daysToCompleteSize; i++)
         this->daysToCompleteCourse[i] = daysToCompleteCourse[i];
+	//cout << "TEST" << this->getDaysToCompleteCourse();
 }
 
 void Student::print()
 {
-    cout << left << setw(15) << studentID;
-    cout << left << setw(25) << firstName;
-    cout << left << setw(25) << lastName;
-    cout << left << setw(25) << studentEmail;
-    cout << left << setw(10) << studentAge;
-    cout << left << setw(5) << daysToCompleteCourse[0];
-    cout << left << setw(5) << daysToCompleteCourse[1];
-    cout << left << setw(5) << daysToCompleteCourse[2];
+    cout << left << setw(15) << this->getStudentID();
+    cout << left << setw(25) << this->getStudentFirstName();
+    cout << left << setw(25) << this->getStudentLastName();
+    cout << left << setw(25) << this->getStudentEmail();
+    cout << left << setw(10) << this->getStudentAge();
+    cout << left << setw(5) << this->getDaysToCompleteCourse()[0];
+    cout << left << setw(5) << this->getDaysToCompleteCourse()[1];
+    cout << left << setw(5) << this->getDaysToCompleteCourse()[2];
 }
 
 Student::~Student()

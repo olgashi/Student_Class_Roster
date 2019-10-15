@@ -20,7 +20,7 @@ public:
     void parseThenAdd(string datarow);// Parses given strings with student records, creates student objects, and adds them to the roster
     void add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeType degree);
     void printAll();// Prints all students in roster
-    bool remove(string studentID);// Removes a student based on its ID
+	void remove(string studentID);// Removes a student based on its ID
     void printAverageDaysInCourse(string studentID);// Prints students average days in course
     void printInvalidEmails();// Determines invalid emails and prints
     void printByDegreeProgram(int degreeProgram) ;// Prints students with given degree type

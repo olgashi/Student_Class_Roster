@@ -91,7 +91,7 @@ void Roster::printAll()
     for (int i = 0; i <= this->lastIndex; i++) (this->classRosterArray)[i]->print();
 }
 // Remove student with given ID
-bool Roster::remove(string ID)
+void Roster::remove(string ID)
 {
     bool found = false;
     for (int i = 0; i <= lastIndex; i++)
@@ -103,9 +103,14 @@ bool Roster::remove(string ID)
             
             this->classRosterArray[i] = this->classRosterArray[lastIndex];
             lastIndex--;
-        }
-    }
-    return found;
+		}
+	}
+	if (found) {
+		cout << "\nStudent has been removed from roster.\n\n";
+	} else {
+		cout << "\nStudent was not found!\n\n";
+	}
+    
 }
 // Print average days in course for a student
 void Roster::printAverageDaysInCourse(string studentID)
@@ -120,7 +125,7 @@ void Roster::printAverageDaysInCourse(string studentID)
             cout << "Average days in course for student with ID# " << studentID << " is " << (p[0] + p[1] + p[2]) / 3 << ".\n";
         }
     }
-    if (!found) cout << "Student not found!\n";
+    if (!found) cout << "\nStudent not found!\n";
 }
 // Print invalid emails
 void Roster::printInvalidEmails()
@@ -155,7 +160,7 @@ Roster::~Roster()// Destroys all students
         delete this->classRosterArray[i];
     }
     delete classRosterArray;
-	cout << "\nDestructor is executed\n";
+	cout << "\nDestructor is executed.\n";
 }
 
 int main() //  Main
@@ -171,6 +176,9 @@ int main() //  Main
              "A5,Olga,Shiryaeva,oshirya@wgu.edu,35,30,22,30,SOFTWARE"};
 
     Roster * classRoster = new Roster(numStudents); // Create student roster
+
+	cout << "\nScripting and Programming - Applications - C867, C++, WGU# 001209745, Olga Shiryaeva\n\n";
+
     cout << "Parsing student data and adding students to roster:\t";
     for (int i = 0; i < numStudents; i++)
     {
@@ -197,17 +205,23 @@ int main() //  Main
 	cout << left << setw(5) << "---------------------------------------------------------------------------------------------------------------------------------\n";
 	classRoster->printByDegreeProgram(SOFTWARE);
 
-    cout << "\nRemoving student with ID# A3. Then printing remaining students in the roster. Then trying to remove the same student again to check error conditions.\n";
+    cout << "\nRemoving student with ID# A3.\n";
 	// Remove student with provided ID twice: first - to remove, second - to check error condition
-	for (int i = 0; i < 2; i++) {
-		if (classRoster->remove("A3")) {
-			cout << left << setw(10) << "Student ID    First Name                Last Name                 Email                  Age       Days in Course    Degree   \n";
-			cout << left << setw(5) << "---------------------------------------------------------------------------------------------------------------------------------\n";
-			classRoster->printAll();
-			numStudents--;
-		}
-		else cout << "\nStudent not found!\n";
-	}
+	
+	classRoster->remove("A3");
+	cout << left << setw(10) << "Student ID    First Name                Last Name                 Email                  Age       Days in Course    Degree   \n";
+	cout << left << setw(5) << "---------------------------------------------------------------------------------------------------------------------------------\n";
+	classRoster->printAll();
+	// Removing the same student again and then printing roster
+	cout << "\nRemoving student with ID# A3 again to check error condition.\n";
+	classRoster->remove("A3");
+	cout << left << setw(10) << "Student ID    First Name                Last Name                 Email                  Age       Days in Course    Degree   \n";
+	cout << left << setw(5) << "---------------------------------------------------------------------------------------------------------------------------------\n";
+	classRoster->printAll();
+		
+		
+
+	
 
 	classRoster->~Roster();
 
