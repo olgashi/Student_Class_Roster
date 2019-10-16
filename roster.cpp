@@ -177,8 +177,6 @@ int main() //  Main
 
     Roster * classRoster = new Roster(numStudents); // Create student roster
 
-	cout << "\nScripting and Programming - Applications - C867, C++, WGU# 001209745, Olga Shiryaeva\n\n";
-
     cout << "Parsing student data and adding students to roster:\t";
     for (int i = 0; i < numStudents; i++)
     {
