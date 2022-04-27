@@ -1,3 +1,6 @@
+![c-plusplus](https://user-images.githubusercontent.com/41551585/165622904-29de9257-1d3b-4881-be9c-38d2d358ec77.svg)
+
+
 ## Class Roster App
 ### Overview
 
