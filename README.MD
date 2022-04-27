@@ -1,3 +1,4 @@
+## Class Roster App
 ### Overview
 
 The program maintains roster of students within a given course. Student data represented as an array of strings includes student ID, first name, last name, email address, age, number of days to complete each course (as an array), and degree. 
